@@ -1,3 +1,4 @@
+ 
 
 from tkinter import *# import tkinter
 import math
@@ -22,23 +23,61 @@ def clear():
     input_box.delete(0, END)
 
 # The functions to handle the equal button.
+
 def buton_equals():
 
-    f_num = input_box.get()
+    
     second_num = input_box.get()
     input_box.delete(0, END)
 
     if math == "addition":
         input_box.insert(0, f_num + int(second_num))
 
-    if math == "substraction":
+    elif math == "substraction":
         input_box.insert(0, f_num - int(second_num))
 
-    if math == "Devition" :
+    elif math == "Devision" :
         input_box.insert(0, f_num / int(second_num))
 
-    if math == "multiplication" :
+    elif math == "multiplication" :
         input_box.insert(0, f_num * int(second_num))
+
+# Define the functions to handle the operations.
+def button_add():
+
+    global f_num
+    global math
+    f_num = input_box.get() # get the entered value and store it in f_num variable
+    math = "addition"
+    f_num = int(f_num)
+    input_box.delete(0, END)
+
+def button_sub():
+
+    global f_num
+    global math
+    f_num = input_box.get()
+    math = "substraction"
+    f_num = int(f_num)
+    input_box.delete(0, END)
+
+def button_devide():
+
+    global f_num
+    global math
+    f_num = input_box.get()
+    math = "devision"
+    f_num = int(f_num)
+    input_box.delete(0, END)
+
+def button_multiply():
+    
+    global f_num
+    global math
+    f_num = input.get()
+    math = "multiplication"
+    f_num = int(f_num)
+    input_box.delete(0, END)
 
 # Add the number and operation buttons.
 # Example :-when the button is clicked, the lambda function is called, which in turn calls the button_click function with the argument 1. This will update the calculator display to show the number 1.
