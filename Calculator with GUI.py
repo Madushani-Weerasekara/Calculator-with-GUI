@@ -1,5 +1,6 @@
 
 from tkinter import *# import tkinter
+import math
 
 root_window = Tk() # create a new tkinter window using TK() class
 
@@ -13,8 +14,27 @@ input_box.grid(row=0, column=0, columnspan=4, padx=10, pady=10) #places the inpu
 def button_click(number):
 
     current = input_box.get() #retrieves the current value of the calculator display widget, which is stored in the input_box variable.
-    input_box.delete(0,END) # clear all -delete all of the text in the widget, starting from the beginning (index 0) and continuing to the end.
+    input_box.delete(0, END) # clear all -delete all of the text in the widget, starting from the beginning (index 0) and continuing to the end.
     input_box.insert = str(current) + str(number) # inserts the new number clicked by the user into the display widget by converting it to a string and concatenating it with the previous value stored in current.
+ 
+# The functions to handle the equal button.
+def button_equals():
+
+    f_num = input_box.get()
+    second_num = input_box.get()
+    input_box.delete(0, END)
+
+    if math == "addition":
+        input_box.insert(0, f_num + int(second_num))
+
+    if math == "substraction":
+        input_box.insert(0, f_num - int(second_num))
+
+    if math == "Devition" :
+        input_box.insert(0, f_num / int(second_num))
+
+    if math == "multiplication" :
+        input_box.insert(0, f_num * int(second_num))
 
 # Add the number and operation buttons.
 # Example :-when the button is clicked, the lambda function is called, which in turn calls the button_click function with the argument 1. This will update the calculator display to show the number 1.
