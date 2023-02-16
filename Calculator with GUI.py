@@ -17,8 +17,12 @@ def button_click(number):
     input_box.delete(0, END) # clear all -delete all of the text in the widget, starting from the beginning (index 0) and continuing to the end.
     input_box.insert = str(current) + str(number) # inserts the new number clicked by the user into the display widget by converting it to a string and concatenating it with the previous value stored in current.
  
+ # The function to handle the clear button.
+def clear():
+    input_box.delete(0, END)
+
 # The functions to handle the equal button.
-def button_equals():
+def buton_equals():
 
     f_num = input_box.get()
     second_num = input_box.get()
