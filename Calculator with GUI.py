@@ -37,7 +37,7 @@ def clear():
     input_box.delete(0, tk.END)
 
 def clear_lastEntry(entry):
-    return entry
+    return entry(-1)
 
 
 # Define the functions to handle the operations.
@@ -76,6 +76,73 @@ def button_multiply():
     math = "multiplication"
     f_num = float(f_num)
     input_box.delete(0, tk.END)
+
+def button_signChange(current_value):
+
+    # If the current value is possitive change it to negative.
+    if current_value > 0:
+        return -current_value
+
+    # If the current value is negative change it to possitive. 
+    elif current_value < 0:
+        return current_value
+    # If the current value is Zero, return zero.
+    else:
+        return 0
+
+def button_percentage(num,percentage):
+# return the percentage of a given number.
+    return (num * percentage) / 100
+
+def button_squareRoot(num):
+# Returns the square root of a given number.
+    return math.sqrt(num)
+
+#Calculate Exponentiation
+def button_square(num):
+    return num ** 2
+
+def button_cube(num):
+    return num **3
+
+def button_recip(num):
+    return 1/num
+# backspace
+def button_back (current_value):
+# Removes the last character from the given string and returns the result.
+    if len(current_value )> 0:
+        return current_value [:-1]
+
+    else:
+        return current_value
+
+# Memory functions
+memory_value = 0 # Initialize the memory value to zero.
+
+def button_MC():
+# clear the current value.
+    global memory_value
+    memory_value = 0
+   
+
+def button_MS(current_value):
+# store the current value in the memory.
+    global memory_value
+    memory_value =current_value
+
+def button_MR():
+# returns the current memory value.
+    return memory_value
+
+def button_M_add(current_value):
+# adds the current value to the memory value.
+    global memory_value
+    memory_value += current_value
+
+def button_M_subtract(current_value):
+# Subtracts the current value from the memory value.
+    global memory_value
+    memory_value -= current_value
 
 # The functions to handle the equal button.
 def button_equal():
@@ -159,23 +226,26 @@ button_clear_lastEntry.grid(row=2, column=2)
 button_clear = tk.Button(root_window, text="C", padx=40, pady=20, command=lambda:button_clear())
 button_clear.grid(row=2, column=3)
 
+# +/-
 button_signChange = tk.Button(root_window, text="+/-", padx=40, pady=20, command=lambda:button_clear())
 button_signChange.grid(row=6, column=2)
 
+# %
 button_percentage = tk.Button(root_window,text="%", padx=40,pady=20,command=lambda: button_click())
 button_percentage.grid(row=2, column=1)
 
+# √
 button_squareRoot = tk.Button(root_window, text="√", padx=40, pady=20, command=lambda:button_clear())
 button_squareRoot.grid(row=3, column=1)
 
 # Exponentiation
-button_X2 = tk.Button(root_window, text="x^2", padx=40, pady=20, command=lambda:button_X2())
-button_X2.grid(row=4, column=1)
-button_X3 = tk.Button(root_window, text="X^3", padx=40, pady=20, command=lambda:button_X3())
-button_X3.grid(row=5, column=1)
+button_square = tk.Button(root_window, text="x^2", padx=40, pady=20, command=lambda:button_square())
+button_square.grid(row=4, column=1)
+
+button_cube = tk.Button(root_window, text="X^3", padx=40, pady=20, command=lambda:button_cube())
+button_cube.grid(row=5, column=1)
 
 #  reciprocal 
-
 button_recip = tk.Button(root_window, text="1/x", padx=40, pady=20, command=lambda:button_recip())
 button_recip.grid(row=6, column=1)
 
@@ -186,11 +256,11 @@ button_back.grid(row=2, column=4)
 
 # Memory functions
 
-button_M_positive = tk.Button(root_window, text="M+", padx=20, pady=10, command=lambda:button_M_positive())
-button_M_positive.grid(row=1, column=3)
+button_M_add = tk.Button(root_window, text="M+", padx=20, pady=10, command=lambda:button_M_add())
+button_M_add.grid(row=1, column=3)
 
-button_M_negative = tk.Button(root_window, text="M-", padx=20, pady=10, command=lambda:button_M_negative())
-button_M_negative.grid(row=1, column=4)
+button_M_subtract = tk.Button(root_window, text="M-", padx=20, pady=10, command=lambda:button_M_subtract())
+button_M_subtract.grid(row=1, column=4)
 
 button_MR = tk.Button(root_window, text="MR", padx=20, pady=10, command=lambda:button_MR())
 button_MR.grid(row=1, column=2)
@@ -201,7 +271,5 @@ button_MS.grid(row=1, column=5)
 button_MC = tk.Button(root_window, text="MC", padx=20, pady=10, command=lambda:button_MC())
 button_MC.grid(row=1, column=1)
  
-
-
 
 root_window.mainloop() # display the window. This loop helps to keep the window open untill the user close it or exit the program.
