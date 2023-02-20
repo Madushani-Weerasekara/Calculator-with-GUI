@@ -28,7 +28,8 @@ def button_click(number):
 
     current = input_box.get() #retrieves the current value of the calculator display widget, which is stored in the input_box variable.
     input_box.delete(0, tk.END) # clear all -delete all of the text in the widget, starting from the beginning (index 0) and continuing to the end.
-    input_box.insert (str(current) + str(number)) # inserts the new number clicked by the user into the display widget by converting it to a string and concatenating it with the previous value stored in current.
+    cal = str(current) + str(number)
+    input_box.insert(0,cal) # inserts the new number clicked by the user into the display widget by converting it to a string and concatenating it with the previous value stored in current.
  
  # The function
  #  to handle the clear button.
